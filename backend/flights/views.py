@@ -1,8 +1,7 @@
-from django.http import JsonResponse
-from django.views import View
+from rest_framework import viewsets
 from .models import Flight
+from .serializers import FlightSerializer
 
-class FlightListView(View):
-    def get(self, request):
-        flights = list(Flight.objects.values())  # Convert QuerySet to list
-        return JsonResponse(flights, safe=False)
+class FlightViewSet(viewsets.ModelViewSet):
+    queryset = Flight.objects.all()
+    serializer_class = FlightSerializer

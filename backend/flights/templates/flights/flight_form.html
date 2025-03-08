@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Flight</title>
+</head>
+<body>
+    <h1>Create Flight</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="flight_number">Flight Number:</label>
+        <input type="text" id="flight_number" name="flight_number"><br><br>
+        <label for="origin">Origin:</label>
+        <input type="text" id="origin" name="origin"><br><br>
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination"><br><br>
+        <label for="departure_time">Departure Time:</label>
+        <input type="datetime-local" id="departure_time" name="departure_time"><br><br>
+        <label for="arrival_time">Arrival Time:</label>
+        <input type="datetime-local" id="arrival_time" name="arrival_time"><br><br>
+        <label for="co2_emissions">CO2 Emissions:</label>
+        <input type="number" step="any" id="co2_emissions" name="co2_emissions"><br><br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
