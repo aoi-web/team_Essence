@@ -11,13 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import firebase_admin
-from firebase_admin import credentials, auth
 
-FIREBASE_CREDENTIALS_PATH = "firebase_config.json"
-
-cred = credentials.Certificate(FIREBASE_CREDENTIALS_PATH)
-firebase_admin.initialize_app(cred)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,7 +43,7 @@ INSTALLED_APPS = [
     'flights',
     'users',
     'sustainability',
-    'flight_auth',
+    
     
 ]
 

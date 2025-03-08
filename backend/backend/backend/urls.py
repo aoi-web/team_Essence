@@ -19,6 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/flights/", include("flights.urls")),  
-    path("api/firebase/", include("firebase_auth.urls")),  # Add Firebase Auth API
+    path("api/flights/", include("flights.urls")),  # ✅ Make sure this line is here
+    path("api/auth/", include("flight_auth.urls")),  # ✅ Firebase Authentication
 ]
