@@ -1,5 +1,11 @@
 from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import Group, Permission
+
 from django.db import models
 
 class CustomUser(AbstractUser):
-    is_premium = models.BooleanField(default=False)
+    groups = models.ManyToManyField(Group, related_name="customuser_set", blank=True)
+    user_permissions = models.ManyToManyField(Permission, related_name="customuser_permissions_set", blank=True)
+
+    def __str__(self):
+        return self.username
