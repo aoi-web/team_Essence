@@ -31,6 +31,9 @@ export default function Home() {
             </Link>
           
           <nav className="hidden md:flex gap-6">
+            <Link href="/" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              Home
+            </Link>
             <Link href="/" className="text-sm font-medium text-primary">
               Dashboard
             </Link>
