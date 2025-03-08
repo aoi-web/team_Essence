@@ -14,7 +14,7 @@ from pathlib import Path
 import firebase_admin
 from firebase_admin import credentials, auth
 
-FIREBASE_CREDENTIALS_PATH = "backend/firebase_config.json"
+FIREBASE_CREDENTIALS_PATH = "firebase_config.json"
 
 cred = credentials.Certificate(FIREBASE_CREDENTIALS_PATH)
 firebase_admin.initialize_app(cred)
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'flights',
     'users',
     'sustainability',
+    'flight_auth',
     
 ]
 
