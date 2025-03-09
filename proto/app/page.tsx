@@ -26,63 +26,45 @@ const flights = [
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-lg">
-
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Plane className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">SkyOps</span>
-          </div>
-         
-          
-          <nav className="hidden md:flex gap-6">
-          <Button asChild variant="ghost" size="sm" className="bg-primary text-white hover:bg-primary-dark transition-colors">
-            <Link href="/home" className="text-sm font-medium">
-              Home
-            </Link>
-          </Button>           <Link href="/" className="text-sm font-medium text-primary">
-              Dashboard
-            </Link>
-            <Link
-              href="/flights"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              Flights
-            </Link>
-            <Link
-              href="/maintenance"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              Maintenance
-            </Link>
-            <Link
-              href="/hub"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              Hub Management
-            </Link>
-            <Link
-              href="/eco-routes"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              Eco Routes
-            </Link>
-            <Link
-              href="/book"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              book flights
-            </Link>
-           
-          </nav>
-          <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm">
-              <Users className="mr-2 h-4 w-4" />
-              Login
-            </Button>
-          </div>
-        </div>
-      </header>
+     <header className="sticky top-0 z-50 w-full border-b bg-blue-900 text-white shadow-md">
+  <div className="container flex h-16 items-center justify-between">
+    <div className="flex items-center gap-2">
+      <Plane className="h-6 w-6 text-white" />
+      <span className="text-xl font-bold">SkyOps</span>
+    </div>
+    <nav className="hidden md:flex gap-6">
+      <Button asChild variant="ghost" size="sm" className="bg-blue-700 text-white hover:bg-blue-800 transition-colors">
+        <Link href="/home" className="text-sm font-medium">
+          Home
+        </Link>
+      </Button>
+      <Link href="/" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
+        Dashboard
+      </Link>
+      <Link href="/flights" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
+        Flights
+      </Link>
+      <Link href="/maintenance" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
+        Maintenance
+      </Link>
+      <Link href="/hub" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
+        Hub Management
+      </Link>
+      <Link href="/eco-routes" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
+        Eco Routes
+      </Link>
+      <Link href="/book" className="text-sm font-medium text-white font-semibold">
+        Book Flights
+      </Link>
+    </nav>
+    <div className="flex items-center gap-4">
+      <Button variant="outline" size="sm" className="text-white border-white">
+        <Users className="mr-2 h-4 w-4" />
+        Login
+      </Button>
+    </div>
+  </div>
+</header>
       <main className="flex-1">
         <section className="container py-10">
           <div className="grid gap-6">
@@ -455,28 +437,31 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="border-t py-6">
-        <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <Plane className="h-5 w-5 text-primary" />
-            <span className="text-lg font-semibold">SkyOps</span>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            © 2025 SkyOps Flight Operations Management. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            <Link href="#" className="text-sm text-muted-foreground hover:text-primary">
-              Terms
-            </Link>
-            <Link href="#" className="text-sm text-muted-foreground hover:text-primary">
-              Privacy
-            </Link>
-            <Link href="#" className="text-sm text-muted-foreground hover:text-primary">
-              Contact
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <footer className="w-full bg-blue-900 text-white py-6 mt-10">
+  <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
+    <div className="flex items-center gap-2 font-bold">
+      <Plane className="h-5 w-5 text-white" />
+      <span>SkyOps</span>
+    </div>
+    <p className="text-sm text-gray-300">© 2025 SkyOps Flight Operations Management. All rights reserved.</p>
+    <div className="flex gap-4">
+      <Link href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
+        Terms
+      </Link>
+      <Link href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
+        Privacy
+      </Link>
+      <Link href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
+        Contact
+      </Link>
+    </div>
+  </div>
+  <div className="container mt-4 text-center">
+    <p className="text-sm text-gray-300">
+      ALL THE FLIGHTS WOULD STOP THE BOARDING 30 MINUTES BEFORE THE DEPARTURE
+    </p>
+  </div>
+</footer>
     </div>
   )
 }

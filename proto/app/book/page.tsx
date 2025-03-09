@@ -33,6 +33,9 @@ export default function BookPage() {
             <Link href="/eco-routes" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
               Eco Routes
             </Link>
+            <Link href="/market" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              Market Place
+            </Link>
             
             <Link href="/book" className="text-sm font-medium text-white font-semibold">
               Book Flights
@@ -73,14 +76,27 @@ export default function BookPage() {
               </div>
             </div>
 
-            <div>
-              <label className="block text-gray-700 font-medium">Passengers</label>
-              <select className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                <option>1 Passenger</option>
-                <option>2 Passengers</option>
-                <option>3 Passengers</option>
-                <option>4+ Passengers</option>
-              </select>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-gray-700 font-medium">Passengers</label>
+                <select className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                  <option>1 Passenger</option>
+                  <option>2 Passengers</option>
+                  <option>3 Passengers</option>
+                  <option>4+ Passengers</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-gray-700 font-medium">Type of Flight</label>
+                <select className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                  <option>Full-Service Airlines (Legacy Carriers)</option>
+                  <option>Low-Cost Carriers (LCCs)</option>
+                  <option>Ultra-Low-Cost Carriers (ULCCs)</option>
+                  <option>Regional Airlines</option>
+                  <option>Charter Airlines</option>
+                  <option>Hybrid Airlines</option>
+                </select>
+              </div>
             </div>
 
             <Button className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 rounded-lg">

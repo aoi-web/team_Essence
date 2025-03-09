@@ -59,7 +59,7 @@ export default function HubPage() {
               Eco Routes
             </Link>
             <Link
-              href="/reports"
+              href="/book"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
               book flights

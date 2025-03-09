@@ -7,49 +7,68 @@ import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-50">
-      <header className="bg-white border-b">
-  <div className="container mx-auto px-4 py-4 flex items-center">
-    <div className="flex items-center gap-2">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-green-600"
-      >
-        <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" />
-      </svg>
-      <h1 className="text-xl font-bold">EcoFlight</h1>
-    </div>
-    <nav className="hidden md:flex gap-6 ml-20">
-      <Button asChild variant="ghost" size="sm" className="bg-primary text-white hover:bg-primary-dark transition-colors">
-        <Link href="/home" className="text-sm font-medium">Home</Link>
-      </Button>
-      <Link href="/" className="text-sm font-medium text-primary">Dashboard</Link>
-      <Link href="/flights" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">Flights</Link>
-      <Link href="/maintenance" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">Maintenance</Link>
-      <Link href="/hub" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">Hub Management</Link>
-      <Link href="/eco-routes" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">Eco Routes</Link>
-      <Link href="/reports" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">Book Flights</Link>
-    </nav>
-  </div>
-</header>
-
+    <div className="min-h-screen bg-white">
+      <header className="bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-md">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-green-400"
+            >
+              <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" />
+            </svg>
+            <h1 className="text-xl font-bold">EcoFlight</h1>
+          </div>
+          <nav className="hidden md:flex gap-6">
+            <Button asChild variant="ghost" size="sm" className="hover:bg-blue-600 transition-colors">
+              <Link href="/home" className="text-sm font-medium">
+                Home
+              </Link>
+            </Button>
+            <Link href="/" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
+              Dashboard
+            </Link>
+            <Link href="/flights" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
+              Flights
+            </Link>
+            <Link href="/maintenance" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
+              Maintenance
+            </Link>
+            <Link href="/hub" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
+              Hub Management
+            </Link>
+            <Link href="/eco-routes" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
+              Eco Routes
+            </Link>
+            <Link href="/book" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
+              Book Flights
+            </Link>
+            <Link href="/market" className="text-sm font-medium text-gray-200 hover:text-white transition-colors">
+              Market Place
+            </Link>
+          </nav>
+          <div className="flex items-center gap-4">
+            <Button variant="outline" size="sm" className="text-white border-white hover:bg-white hover:text-blue-700">
+              Login
+            </Button>
+          </div>
+        </div>
+      </header>
 
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto mb-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Find Eco-Friendly Flight Routes</h2>
+          <h2 className="text-3xl font-bold text-blue-900 mb-4">Find Eco-Friendly Flight Routes</h2>
           <p className="text-gray-600 mb-6">
-            Discover flight routes with lower carbon emissions and help reduce your environmental impact while
-            traveling.
+            Discover flight routes with lower carbon emissions and help reduce your environmental impact while traveling.
           </p>
-
           <RouteSearch />
         </div>
 
@@ -67,7 +86,7 @@ export default function Home() {
         </Tabs>
       </main>
 
-      <footer className="bg-gray-800 text-white py-8 mt-12">
+      <footer className="bg-blue-900 text-white py-8 mt-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>

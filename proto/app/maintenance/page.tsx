@@ -64,6 +64,9 @@ export default function MaintenancePage() {
             >
               book flights
             </Link>
+            <Link href="/market" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              Market Place
+            </Link>
            
           </nav>
           <div className="flex items-center gap-4">

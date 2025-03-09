@@ -16,44 +16,32 @@ export default function FlightsPage() {
             <span className="text-xl font-bold">SkyOps</span>
           </div>
           <nav className="hidden md:flex gap-6">
-          <Button asChild variant="ghost" size="sm" className="bg-primary text-white hover:bg-primary-dark transition-colors">
-            <Link href="/home" className="text-sm font-medium">
-              Home
-            </Link>
-          </Button>           <Link href="/" className="text-sm font-medium text-primary">
+            <Button asChild variant="ghost" size="sm" className="bg-primary text-white hover:bg-primary-dark transition-colors">
+              <Link href="/home" className="text-sm font-medium">
+                Home
+              </Link>
+            </Button>
+            <Link href="/" className="text-sm font-medium text-primary">
               Dashboard
             </Link>
-            <Link
-              href="/flights"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
+            <Link href="/flights" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
               Flights
             </Link>
-            <Link
-              href="/maintenance"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
+            <Link href="/maintenance" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
               Maintenance
             </Link>
-            <Link
-              href="/hub"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
+            <Link href="/hub" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
               Hub Management
             </Link>
-            <Link
-              href="/eco-routes"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
+            <Link href="/eco-routes" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
               Eco Routes
             </Link>
-            <Link
-              href="/reports"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              book flights
+            <Link href="/book" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              Book Flights
             </Link>
-           
+            <Link href="/market" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              Market Place
+            </Link>
           </nav>
           <div className="flex items-center gap-4">
             <Button variant="outline" size="sm">
@@ -89,6 +77,7 @@ export default function FlightsPage() {
               </Button>
             </div>
           </div>
+          
 
           <Tabs defaultValue="all" className="space-y-4">
             <TabsList>
@@ -97,6 +86,7 @@ export default function FlightsPage() {
               <TabsTrigger value="arrivals">Arrivals</TabsTrigger>
               <TabsTrigger value="delayed">Delayed</TabsTrigger>
             </TabsList>
+            
 
             <TabsContent value="all" className="space-y-4">
               <Card>
@@ -112,6 +102,9 @@ export default function FlightsPage() {
                         <TableHead>Route</TableHead>
                         <TableHead>Scheduled</TableHead>
                         <TableHead>Estimated</TableHead>
+                        <TableHead>Arrival</TableHead>
+                        <TableHead>Seating Capacity</TableHead>
+                        
                         <TableHead>Gate</TableHead>
                         <TableHead>Status</TableHead>
                         <TableHead className="text-right">Actions</TableHead>
@@ -124,6 +117,8 @@ export default function FlightsPage() {
                           route: "Copenhagen (CPH) → London (LHR)",
                           scheduled: "10:15",
                           estimated: "10:15",
+                          arrival: "12:30",
+                          seatingCapacity: "180",
                           gate: "A12",
                           status: "On Time",
                           type: "departure",
@@ -133,6 +128,8 @@ export default function FlightsPage() {
                           route: "Stockholm (ARN) → Copenhagen (CPH)",
                           scheduled: "09:45",
                           estimated: "09:45",
+                          arrival: "11:00",
+                          seatingCapacity: "150",
                           gate: "D15",
                           status: "Landed",
                           type: "arrival",
@@ -142,6 +139,8 @@ export default function FlightsPage() {
                           route: "Copenhagen (CPH) → Paris (CDG)",
                           scheduled: "10:30",
                           estimated: "10:30",
+                          arrival: "12:50",
+                          seatingCapacity: "170",
                           gate: "B04",
                           status: "Boarding",
                           type: "departure",
@@ -151,6 +150,8 @@ export default function FlightsPage() {
                           route: "Oslo (OSL) → Copenhagen (CPH)",
                           scheduled: "10:05",
                           estimated: "10:05",
+                          arrival: "12:50",
+                          seatingCapacity: "170",
                           gate: "E02",
                           status: "Landed",
                           type: "arrival",
@@ -160,6 +161,8 @@ export default function FlightsPage() {
                           route: "Copenhagen (CPH) → Amsterdam (AMS)",
                           scheduled: "10:45",
                           estimated: "11:15",
+                          arrival: "13:00",
+                          seatingCapacity: "200",
                           gate: "C22",
                           status: "Delayed",
                           type: "departure",
@@ -169,6 +172,8 @@ export default function FlightsPage() {
                           route: "Helsinki (HEL) → Copenhagen (CPH)",
                           scheduled: "10:20",
                           estimated: "10:20",
+                          arrival: "12:00",
+                          seatingCapacity: "160",
                           gate: "D10",
                           status: "Approaching",
                           type: "arrival",
@@ -178,6 +183,8 @@ export default function FlightsPage() {
                           route: "Copenhagen (CPH) → Berlin (BER)",
                           scheduled: "11:00",
                           estimated: "11:00",
+                          arrival: "13:30",
+                          seatingCapacity: "180",
                           gate: "A08",
                           status: "On Time",
                           type: "departure",
@@ -187,6 +194,8 @@ export default function FlightsPage() {
                           route: "Frankfurt (FRA) → Copenhagen (CPH)",
                           scheduled: "10:40",
                           estimated: "11:10",
+                          arrival: "12:50",
+                          seatingCapacity: "170",
                           gate: "E08",
                           status: "Delayed",
                           type: "arrival",
@@ -197,6 +206,8 @@ export default function FlightsPage() {
                           <TableCell>{flight.route}</TableCell>
                           <TableCell>{flight.scheduled}</TableCell>
                           <TableCell>{flight.estimated}</TableCell>
+                          <TableCell>{flight.arrival}</TableCell>
+                          <TableCell>{flight.seatingCapacity}</TableCell>
                           <TableCell>{flight.gate}</TableCell>
                           <TableCell>
                             <div className="flex items-center">
@@ -482,6 +493,11 @@ export default function FlightsPage() {
           </div>
           <p className="text-sm text-muted-foreground">
             © 2025 SkyOps Flight Operations Management. All rights reserved.
+          </p>
+        </div>
+        <div className="container mt-4 text-center">
+          <p className="text-sm text-muted-foreground">
+            ALL THE FLIGHTS WOULD STOP THE BOARDING 30 MINUTES BEFORE THE DEPARTURE
           </p>
         </div>
       </footer>
