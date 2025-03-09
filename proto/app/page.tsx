@@ -1,5 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import Flight from "@/components/flight-map"
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import {
@@ -14,27 +16,31 @@ import {
   CalendarClock,
 } from "lucide-react"
 
+const flights = [
+  { id: "SK103", name: "SK103", destination: "London (LHR)", status: "On Time" },
+  { id: "SK245", name: "SK245", destination: "Paris (CDG)", status: "Boarding" },
+  { id: "SK371", name: "SK371", destination: "Amsterdam (AMS)", status: "Delayed" },
+  { id: "SK492", name: "SK492", destination: "Berlin (BER)", status: "On Time" },
+];
+
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-lg">
+
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Plane className="h-6 w-6 text-primary" />
             <span className="text-xl font-bold">SkyOps</span>
           </div>
-          <Link
-              href="/about-us"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              About Us
-            </Link>
+         
           
           <nav className="hidden md:flex gap-6">
-            <Link href="/" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+          <Button asChild variant="ghost" size="sm" className="bg-primary text-white hover:bg-primary-dark transition-colors">
+            <Link href="/home" className="text-sm font-medium">
               Home
             </Link>
-            <Link href="/" className="text-sm font-medium text-primary">
+          </Button>           <Link href="/" className="text-sm font-medium text-primary">
               Dashboard
             </Link>
             <Link
@@ -56,17 +62,18 @@ export default function Home() {
               Hub Management
             </Link>
             <Link
-              href="/reports"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              Reports
-            </Link>
-            <Link
               href="/eco-routes"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
               Eco Routes
             </Link>
+            <Link
+              href="/book"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
+              book flights
+            </Link>
+           
           </nav>
           <div className="flex items-center gap-4">
             <Button variant="outline" size="sm">
@@ -81,7 +88,7 @@ export default function Home() {
           <div className="grid gap-6">
             <div className="flex flex-col md:flex-row justify-between gap-4">
               <div>
-                <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
+                <h1 className="text-3xl font-bold tracking-tight ">Dashboard</h1>
                 <p className="text-muted-foreground">Welcome to SkyOps Flight Operations Management System</p>
               </div>
               <div className="flex items-center gap-2">
@@ -96,8 +103,10 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              <Card>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+
+            <Card className="p-4 border rounded-lg shadow-sm hover:shadow-md transition">
+
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">Total Flights Today</CardTitle>
                   <Plane className="h-4 w-4 text-muted-foreground" />
@@ -107,7 +116,8 @@ export default function Home() {
                   <p className="text-xs text-muted-foreground">+5% from yesterday</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="p-4 border rounded-lg shadow-sm hover:shadow-md transition">
+
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">On-Time Performance</CardTitle>
                   <Clock className="h-4 w-4 text-muted-foreground" />
@@ -117,7 +127,8 @@ export default function Home() {
                   <p className="text-xs text-muted-foreground">+1.2% from last week</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="p-4 border rounded-lg shadow-sm hover:shadow-md transition">
+
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">Maintenance Tasks</CardTitle>
                   <Wrench className="h-4 w-4 text-muted-foreground" />
@@ -127,7 +138,8 @@ export default function Home() {
                   <p className="text-xs text-muted-foreground">8 urgent, 16 scheduled</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="p-4 border rounded-lg shadow-sm hover:shadow-md transition">
+
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">Luggage Processing</CardTitle>
                   <Luggage className="h-4 w-4 text-muted-foreground" />
@@ -226,6 +238,36 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
+                  </CardContent>
+                  <CardContent>
+                    <table className="w-full border-collapse">
+                      <thead>
+                        <tr className="border-b">
+                          <th className="px-4 py-2 text-left">Flight</th>
+                          <th className="px-4 py-2 text-left">Destination</th>
+                          <th className="px-4 py-2 text-left">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {flights.map((flight) => (
+                          <tr key={flight.id} className="border-b">
+                            <td className="px-4 py-2">{flight.name}</td>
+                            <td className="px-4 py-2">{flight.destination}</td>
+                            <td className="px-4 py-2">
+                              <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                                flight.status === "On Time"
+                                  ? "bg-green-100 text-green-700"
+                                  : flight.status === "Delayed"
+                                  ? "bg-yellow-100 text-yellow-700"
+                                  : "bg-red-100 text-red-700"
+                              }`}>
+                                {flight.status}
+                              </span>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </CardContent>
                   <CardFooter>
                     <Button asChild>

@@ -16,10 +16,17 @@ export default function FlightsPage() {
             <span className="text-xl font-bold">SkyOps</span>
           </div>
           <nav className="hidden md:flex gap-6">
-            <Link href="/" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+          <Button asChild variant="ghost" size="sm" className="bg-primary text-white hover:bg-primary-dark transition-colors">
+            <Link href="/home" className="text-sm font-medium">
+              Home
+            </Link>
+          </Button>           <Link href="/" className="text-sm font-medium text-primary">
               Dashboard
             </Link>
-            <Link href="/flights" className="text-sm font-medium text-primary">
+            <Link
+              href="/flights"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
               Flights
             </Link>
             <Link
@@ -35,11 +42,18 @@ export default function FlightsPage() {
               Hub Management
             </Link>
             <Link
+              href="/eco-routes"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
+              Eco Routes
+            </Link>
+            <Link
               href="/reports"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
-              Reports
+              book flights
             </Link>
+           
           </nav>
           <div className="flex items-center gap-4">
             <Button variant="outline" size="sm">
@@ -248,9 +262,6 @@ export default function FlightsPage() {
                           scheduled: "10:45",
                           estimated: "11:15",
                           gate: "C22",
-                          status: "Delayed",
-                        },
-                        {
                           status: "Delayed",
                         },
                         {
@@ -477,4 +488,3 @@ export default function FlightsPage() {
     </div>
   )
 }
-

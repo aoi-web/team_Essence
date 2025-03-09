@@ -27,7 +27,11 @@ export default function HubPage() {
             <span className="text-xl font-bold">SkyOps</span>
           </div>
           <nav className="hidden md:flex gap-6">
-            <Link href="/" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+          <Button asChild variant="ghost" size="sm" className="bg-primary text-white hover:bg-primary-dark transition-colors">
+            <Link href="/home" className="mr-auto px-4 py-2 bg-blue-500 text-white rounded">
+              Home
+            </Link>
+          </Button>           <Link href="/" className="text-sm font-medium text-primary">
               Dashboard
             </Link>
             <Link
@@ -38,19 +42,29 @@ export default function HubPage() {
             </Link>
             <Link
               href="/maintenance"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              className="text-sm font-medium  text-muted-foreground transition-colors hover:text-primary"
             >
               Maintenance
             </Link>
-            <Link href="/hub" className="text-sm font-medium text-primary">
+            <Link
+              href="/hub"
+              className="text-sm font-bold  text-muted-foreground transition-colors hover:text-primary"
+            >
               Hub Management
+            </Link>
+            <Link
+              href="/eco-routes"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
+              Eco Routes
             </Link>
             <Link
               href="/reports"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
-              Reports
+              book flights
             </Link>
+           
           </nav>
           <div className="flex items-center gap-4">
             <Button variant="outline" size="sm">
